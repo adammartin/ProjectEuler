@@ -7,13 +7,13 @@ import java.math.BigInteger;
 
 public class GridPath {
 	public static BigInteger paths(int size) {
-		return factorial(size*2).divide(factorial(size).pow(2));
+		return factorialProduct(size*2).divide(factorialProduct(size).pow(2));
 	}
 
-	private static BigInteger factorial(int factorial) {
+	private static BigInteger factorialProduct(int cap) {
 		BigInteger product = ONE;
-		for(int i = 0; i < factorial; i++)
-			product = product.multiply(valueOf(factorial-i));
+		for(int i = 0; i < cap; i++)
+			product = product.multiply(valueOf(cap-i));
 
 		return product;
 	}

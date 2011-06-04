@@ -1,5 +1,9 @@
 package problem11;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class GridProduct {
 	int[][] intGrid;
 
@@ -65,11 +69,10 @@ public class GridProduct {
 		return currentProduct;
 	}
 
-	private int maxProduct(int previousMax, int lineProduct, int horizProduct, int diagDownProduct, int diagUpProduct) {
-		int currentProduct = lineProduct > horizProduct ? lineProduct : horizProduct;
-		currentProduct = currentProduct > diagDownProduct ? currentProduct : diagDownProduct;
-		currentProduct = currentProduct > diagUpProduct ? currentProduct : diagUpProduct;
-		return previousMax > currentProduct ? previousMax : currentProduct;
+	private int maxProduct(Integer ...values) {
+		List<Integer> list = Arrays.asList(values);
+		Collections.sort(list, Collections.reverseOrder());
+		return list.get(0).intValue();
 	}
-
+	
 }

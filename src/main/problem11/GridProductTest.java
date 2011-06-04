@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
 public class GridProductTest {
 	@Test
 	public void canDoSimpleProductInRow() throws Exception {
