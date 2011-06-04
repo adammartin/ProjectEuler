@@ -11,9 +11,9 @@ public class IterativeSequence {
 	private static final BigInteger THREE = BigInteger.valueOf(3);
 
 	public int longestChainUnder(int max) {
-		Touple currentMax = new Touple(2, 2);
+		Tuple currentMax = new Tuple(2, 2);
 		for(int count = countStart(max); count < max; count+=2){
-			Touple currentValue = new Touple(count, chainFor(count));
+			Tuple currentValue = new Tuple(count, chainFor(count));
 			currentMax = currentMax.count > currentValue.count ? currentMax : currentValue;
 		}
 		return currentMax.value;
@@ -44,11 +44,11 @@ public class IterativeSequence {
 		return max;
 	}
 	
-	private class Touple {
+	private class Tuple {
 		private final int value;
 		private final int count;
 
-		private Touple(int value, int count){
+		private Tuple(int value, int count){
 			this.value = value;
 			this.count = count;
 		}
