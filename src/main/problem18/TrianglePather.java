@@ -20,7 +20,7 @@ public class TrianglePather {
 	private List<Integer> reduce(final List<Integer> parentRow, final List<Integer> childRow) {
 		List<Integer> newSums = new ArrayList<Integer>();
 		for(int position = 0; position < parentRow.size(); position++ ){
-			newSums.add(parentRow.get(position) + (int) largestNode(childRow, position));
+			newSums.add(parentRow.get(position) + largestNode(childRow, position));
 		}
 		return newSums;
 	}
