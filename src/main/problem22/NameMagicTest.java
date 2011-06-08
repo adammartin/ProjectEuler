@@ -34,24 +34,19 @@ public class NameMagicTest {
 	
 	@Test
 	public void canLoadFileIntoNameMagic() throws Exception {
-		List<String> names = asList(TOM);
-		writeToFile(fakeFile, names);
-		NameMagic magic = new NameMagic(fakeFile);
-		assertThat(magic.sum(), is(20+15+13));
+		writeToFile(fakeFile, asList(TOM));
+		assertThat(new NameMagic(fakeFile).sum(), is(20+15+13));
 	}
 	
 	@Test
 	public void canLoadFileWithColinIntoNameMagic() throws Exception {
-		List<String> names = asList("COLIN");
-		writeToFile(fakeFile, names);
-		NameMagic magic = new NameMagic(fakeFile);
-		assertThat(magic.sum(), is(53));
+		writeToFile(fakeFile, asList("COLIN"));
+		assertThat(new NameMagic(fakeFile).sum(), is(53));
 	}
 
 	@Test
 	public void canAnotherLoadFileIntoNameMagic() throws Exception {
-		List<String> names = asList(TOM,DICK);
-		writeToFile(fakeFile, names);
+		writeToFile(fakeFile, asList(TOM,DICK));
 		assertThat(new NameMagic(fakeFile).sum(), is(27 + 96));
 	}
 
