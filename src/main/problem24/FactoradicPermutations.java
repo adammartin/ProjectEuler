@@ -35,13 +35,18 @@ public class FactoradicPermutations {
 
 	private String lexicongraphicValue(final int range, int[] digits) {
 		StringBuilder sb = new StringBuilder();
-		List<Integer> numbers = new ArrayList<Integer>(range);
-		for (int i = 0; i < range; i++)
-			numbers.add(i);
+		List<Integer> inversionTable = lehmerCode(range);
 		for (int digit : digits)
-			sb.append(numbers.remove(digit));
+			sb.append(inversionTable.remove(digit));
 
 		return sb.toString();
+	}
+
+	private List<Integer> lehmerCode(final int range) {
+		List<Integer> lehmerCode = new ArrayList<Integer>(range);
+		for (int i = 0; i < range; i++)
+			lehmerCode.add(i);
+		return lehmerCode;
 	}
 
 }
