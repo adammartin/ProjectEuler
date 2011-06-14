@@ -5,15 +5,14 @@ import static java.math.BigInteger.ZERO;
 import static java.math.BigInteger.valueOf;
 
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+
+import common.CrudeCache;
 
 public class IterativeSequence {
 
 	private static final BigInteger TWO = BigInteger.valueOf(2);
 	private static final BigInteger THREE = BigInteger.valueOf(3);
-	private static final CrudeCache CACHE = CrudeCache.cacheOfSize(2500);
+	private static final CrudeCache<BigInteger, Integer> CACHE = new CrudeCache<BigInteger, Integer>(2500);
 
 	public int longestChainUnder(int max) {
 		Tuple currentMax = new Tuple(2, 2);
@@ -70,32 +69,6 @@ public class IterativeSequence {
 		private Tuple(int value, int count){
 			this.value = value;
 			this.count = count;
-		}
-	}
-	
-	private static class CrudeCache {
-		private LinkedList<BigInteger> keys = new LinkedList<BigInteger>();
-		private Map<BigInteger, Integer> cache = new HashMap<BigInteger, Integer>();
-		private final int maxCacheSize;
-		
-		private CrudeCache(int maxCacheSize){
-			this.maxCacheSize = maxCacheSize;
-		}
-		
-		public static CrudeCache cacheOfSize(int maxCacheSize) {
-			return new CrudeCache(maxCacheSize);
-		}
-
-		protected void add(BigInteger key, int value) {
-			if(keys.size() >= maxCacheSize){
-				cache.remove(keys.remove());
-			}
-			keys.add(key);
-			cache.put(key, Integer.valueOf(value));
-		}
-
-		protected Integer get(BigInteger key){
-			return cache.get(key);
 		}
 	}
 }
