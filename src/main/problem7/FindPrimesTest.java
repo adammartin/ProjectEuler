@@ -1,8 +1,8 @@
-package problem6;
+package problem7;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static problem6.FindPrimes.generate;
+import static problem7.FindPrimes.generate;
 
 import org.junit.Test;
 
