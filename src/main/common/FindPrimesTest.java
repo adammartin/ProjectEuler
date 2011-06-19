@@ -87,6 +87,11 @@ public class FindPrimesTest {
 	}
 	
 	@Test
+	public void seventyNineIsPrime() {
+		assertThat(isPrime(79), is(true));
+	}
+	
+	@Test
 	public void bigNumberIsPrime() {
 		assertThat(isPrime(104743), is(true));
 	}

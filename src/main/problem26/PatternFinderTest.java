@@ -98,8 +98,6 @@ public class PatternFinderTest {
 				}
 			}
 		}
-		System.out.println(fractionToDecimal(valueOf(max)).replaceAll(result, "MATCH-"));
-		System.out.println(String.format("%d is longest with a length of %d and a pattern of %s", max, result.length(), result));
 		assertThat(max, is(983));
 	}
 }
