@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindPrimes {
-	private static final CrudeCache<Integer, Integer> CACHE = new CrudeCache<Integer, Integer>(2500);
 
 	public static Integer generate(int n) {
 		List<Integer> primes = new ArrayList<Integer>();
@@ -18,7 +17,7 @@ public class FindPrimes {
 	public static boolean isPrime(Integer possiblePrime) {
 		List<Integer> primes = new ArrayList<Integer>(asList(2));
 		for(int nextPrime = 2; nextPrime <= possiblePrime;){
-			nextPrime = cachedNextPrime(nextPrime, primes);
+			nextPrime = nextPrime(nextPrime, primes);
 			primes.add(valueOf(nextPrime));
 		}
 		return primes.contains(possiblePrime);
@@ -27,21 +26,10 @@ public class FindPrimes {
 	private static void generatePrimes(int n, List<Integer> primes) {
 		if(n>1){
 			generatePrimes(n-1, primes);
-			primes.add(cachedNextPrime(n, primes));
+			primes.add(nextPrime(n, primes));
 	 	} else {
 	 		primes.add(2);
 	 	}
-	}
-
-	private static Integer cachedNextPrime(int previous, List<Integer> primes){
-		Integer nextPrime;
-		if(CACHE.get(valueOf(previous)) != null){
-			nextPrime = CACHE.get(valueOf(previous));
-		} else {
-			nextPrime = nextPrime(previous, primes);
-			CACHE.add(previous, nextPrime);
-		}
-		return nextPrime;
 	}
 
 	private static Integer nextPrime(int n, List<Integer> primes) {
