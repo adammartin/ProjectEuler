@@ -1,1 +1,3 @@
 This is a simple project to track my project euler playing.  I figure I'll share it for anyone interested.
+
+As a note because I chose a recursive solution to prime finder to find the 10001 prime you need a stack size of around 2m (VM arg of -Xss2m).  That's a fairly big deal.  An iterative solution would likely be better because of the requirement.

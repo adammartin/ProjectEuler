@@ -53,6 +53,7 @@ public class NameMagic {
 		while(scanner.hasNext()){
 			names.add(scanner.next().replaceAll("\"", "").trim());
 		}
+		scanner.close();
 		sort(names);
 		return names;
 	}
